@@ -1,59 +1,66 @@
 
-<template >
-    <div class="text-center mt-5 border border-black border-1 rounded bg-gray-100 text-black">
-
-        <div class="text-3xl flex justify-center ">
-            <h1>
-                Cena {{ id + 1 }} con el rey godo&nbsp;
-
-            </h1>
-            <h1 :class="colorTitulo">
-                {{ nombre }}
-            </h1>
-        </div>
-
-        <div class="text-2xl flex  justify-center mt-2">
-            <h2>Precio:&nbsp; </h2>
-            <h2 :class="colorTitulo">
-                {{ precio }}€
-            </h2>
-        </div>
-
-
-        <div class="text-2xl mt-2 flex justify-center ">
-
-            <button v-if="finDeSemana" class="btn bg-red-600 text-white rounded py-2 px-4" disabled>
-                (Solo fines de semana)
-            </button>
-            <button v-else-if="!finDeSemana" class="btn bg-green-600 text-white rounded py-2 px-4" disabled>
-                (De lunes a viernes)
-            </button>
-
-
-        </div>
-
-        <!-- v-show -->
-
-            <div :class="{ 'invisible': mensaje }" class="flex justify-center mt-2">
-
-                <span>Ahora un 10% de descuento &nbsp;</span>
-                <span :class="colorTitulo, mensaje">{{ precioDescuento }}€</span>
-                <img :src="oferta" class="img" width="40" height="40">
-            </div>
-
-
-        <br>
-
-
-        <br>
-
-        <img class="flex justify-center items-center mx-auto mt-2" :src="imagen" alt="">
-
-        <button class="btn bg-gray-200 text-black rounded py-2 px-4 mt-4 mb-4 text-2xl" @click="increment()">
-            Siguiente {{ id + 1 }}/ {{ productos.length }}
+<template>
+    <div
+      class="text-center mt-5 border border-black border-1 rounded bg-gray-100 text-black"
+      style="white-space: nowrap"
+    >
+      <div class="sm:text-2xl flex justify-center">
+        <h1>
+          Cena {{ id + 1 }} con el rey godo&nbsp;
+        </h1>
+        <h1 :class="colorTitulo">
+          {{ nombre }}
+        </h1>
+      </div>
+  
+      <div class="sm:text-2xl flex justify-center mt-2">
+        <h2>Precio:&nbsp; </h2>
+        <h2 :class="colorTitulo">
+          {{ precio }}€
+        </h2>
+      </div>
+  
+      <div class="sm:text-2xl mt-2 flex justify-center">
+        <button
+          v-if="finDeSemana"
+          class="btn bg-red-600 text-white rounded py-2 px-4"
+          disabled
+        >
+          (Solo fines de semana)
         </button>
+        <button
+          v-else-if="!finDeSemana"
+          class="btn bg-green-600 text-white rounded py-2 px-4"
+          disabled
+        >
+          (De lunes a viernes)
+        </button>
+      </div>
+  
+      <div :class="{ 'invisible': mensaje }" class="flex justify-center mt-2">
+        <span>Ahora un 10% de descuento &nbsp;</span>
+        <span :class="colorTitulo, mensaje">{{ precioDescuento }}€</span>
+        <img :src="oferta" class="img" width="40" height="40">
+      </div>
+  
+      <br>
+  
+      <br>
+  
+      <img
+        class="flex justify-center items-center mx-auto mt-2"
+        :src="imagen"
+        alt=""
+      >
+  
+      <button
+        class="btn bg-gray-200 text-black rounded py-2 px-4 mt-4 mb-4 sm:text-2xl"
+        @click="increment()"
+      >
+        Siguiente {{ id + 1 }}/{{ productos.length }}
+      </button>
     </div>
-</template>
+  </template>
 
 <script setup>
 import { ref, computed } from 'vue';
@@ -152,6 +159,10 @@ const increment = () => {
 </script>
 
 <style scoped>
+.custom-card {
+  margin-left: 0;
+  margin-right: 0;
+}
 .green {
     color: green;
 

@@ -5,9 +5,8 @@
 @tailwind components;
 @tailwind utilities;
 #app {
-  max-width: 1280px;
+  max-width: 80%;
   margin: 0 auto;
-  padding: 2rem;
 
   font-weight: normal;
   background-color: white;
@@ -28,13 +27,15 @@ a,
 
 @media (min-width: 1024px) {
   body {
-    display: flex;
+    display: grid;
     place-items: center;
   }
 
   #app {
-    display: grid;
+    display: flex;
     grid-template-columns: 1fr 1fr;
     padding: 0 2rem;
+  background-color: blue;
+
   }
 }
